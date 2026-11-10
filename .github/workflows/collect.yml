@@ -1,0 +1,34 @@
+name: 收集健身房人數
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"   # 每 10 分鐘（GitHub 尖峰時可能延遲幾分鐘）
+  workflow_dispatch:          # 也可以在 Actions 頁面手動執行
+
+permissions:
+  contents: write
+
+concurrency:
+  group: collect
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: 抓取各場館人數
+        run: python collector/collect.py
+      - name: 存回 repo
+        run: |
+          git config user.name "gym-crowd-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          git diff --cached --quiet && exit 0
+          git commit -m "data: $(TZ=Asia/Taipei date '+%Y-%m-%d %H:%M')"
+          git pull --rebase --quiet
+          git push
