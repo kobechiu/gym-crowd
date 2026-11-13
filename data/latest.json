@@ -1,13 +1,13 @@
 {
- "updated": "2026-11-13T23:56:00+08:00",
+ "updated": "2026-11-14T05:43:00+08:00",
  "venues": {
   "台大綜合體育館": {
    "gym": {
-    "count": 3,
+    "count": 0,
     "capacity": 161
    },
    "pool": {
-    "count": 1,
+    "count": 0,
     "capacity": 130
    }
   },
@@ -36,11 +36,11 @@
   },
   "松山運動中心": {
    "pool": {
-    "count": 32,
+    "count": 0,
     "capacity": 400
    },
    "gym": {
-    "count": 22,
+    "count": 0,
     "capacity": 100
    }
   },
