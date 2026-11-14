@@ -1,13 +1,13 @@
 {
- "updated": "2026-11-14T16:12:00+08:00",
+ "updated": "2026-11-14T23:05:00+08:00",
  "venues": {
   "台大綜合體育館": {
    "gym": {
-    "count": 51,
+    "count": 3,
     "capacity": 161
    },
    "pool": {
-    "count": 11,
+    "count": 0,
     "capacity": 130
    }
   },
@@ -16,31 +16,31 @@
   },
   "大同運動中心": {
    "gym": {
-    "count": 43,
+    "count": 0,
     "capacity": 80
    },
    "pool": {
-    "count": 56,
+    "count": 0,
     "capacity": 250
    }
   },
   "士林運動中心": {
    "gym": {
-    "count": 31,
+    "count": 0,
     "capacity": 100
    },
    "pool": {
-    "count": 37,
+    "count": 0,
     "capacity": 200
    }
   },
   "松山運動中心": {
    "pool": {
-    "count": 108,
+    "count": 0,
     "capacity": 400
    },
    "gym": {
-    "count": 64,
+    "count": 33,
     "capacity": 100
    }
   },
@@ -56,31 +56,31 @@
   },
   "內湖運動中心": {
    "gym": {
-    "count": 70,
+    "count": 0,
     "capacity": 130
    },
    "pool": {
-    "count": 71,
+    "count": 0,
     "capacity": 200
    }
   },
   "南港運動中心": {
    "gym": {
-    "count": 57,
+    "count": 0,
     "capacity": 100
    },
    "pool": {
-    "count": 89,
+    "count": 0,
     "capacity": 200
    }
   },
   "文山運動中心": {
    "gym": {
-    "count": 24,
+    "count": 0,
     "capacity": 110
    },
    "pool": {
-    "count": 62,
+    "count": 0,
     "capacity": 200
    }
   }
