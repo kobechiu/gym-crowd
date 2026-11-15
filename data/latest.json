@@ -1,15 +1,8 @@
 {
- "updated": "2026-11-16T00:58:00+08:00",
+ "updated": "2026-11-16T05:27:00+08:00",
  "venues": {
   "台大綜合體育館": {
-   "gym": {
-    "count": 0,
-    "capacity": 161
-   },
-   "pool": {
-    "count": 0,
-    "capacity": 130
-   }
+   "status": "error:URLError"
   },
   "中正運動中心": {
    "status": "error:HTTPError"
@@ -70,7 +63,7 @@
     "capacity": 100
    },
    "pool": {
-    "count": 1,
+    "count": 0,
     "capacity": 200
    }
   },
