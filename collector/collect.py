@@ -89,9 +89,13 @@ def ntu():
 WP = {"gym": r"健身房\s*(\d+)\s*人\s*容留\s*(\d+)\s*人", "pool": r"游泳池\s*(\d+)\s*人\s*容留\s*(\d+)\s*人"}
 SL = {"gym": r"健身房\s*(\d+)\s*人\s*/\s*容納\s*(\d+)\s*人", "pool": r"游泳池\s*(\d+)\s*人\s*/\s*容納\s*(\d+)\s*人"}
 
+# 組內決定只收台大綜合體育館。其他場館的讀法保留在 OTHER_SOURCES，需要時搬回 SOURCES 即可。
 SOURCES = {
     "台大綜合體育館": ntu,
-    "中正運動中心": text_pattern("https://wsjjsc.com.tw/", WP),
+}
+
+OTHER_SOURCES = {
+    "中正運動中心": text_pattern("https://wsjjsc.com.tw/", WP),  # 網站會擋 GitHub 的連線
     "大同運動中心": text_pattern("https://www.dtsc-wdyg.com.tw/", WP),
     "士林運動中心": text_pattern("https://www.slsc-taipei.org/", SL),
     "松山運動中心": songshan,
@@ -144,7 +148,19 @@ def save(rows: list[dict]) -> Path:
     return path
 
 
+def too_soon(min_gap: int) -> bool:
+    """外部觸發和 GitHub 備援排程可能同時到來；距離上一筆不到 min_gap 分鐘就跳過，避免重複資料。"""
+    try:
+        last = datetime.fromisoformat(json.loads((DATA / "latest.json").read_text(encoding="utf-8"))["updated"])
+    except Exception:
+        return False
+    return datetime.now(TPE) - last < timedelta(minutes=min_gap)
+
+
 if __name__ == "__main__":
+    if "--force" not in sys.argv and too_soon(7):
+        print("距離上一筆不到 7 分鐘，這次跳過。")
+        sys.exit(0)
     rows = collect()
     path = save(rows)
     ok = sum(r["status"] == "ok" for r in rows)
