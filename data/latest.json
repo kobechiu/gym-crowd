@@ -1,13 +1,13 @@
 {
- "updated": "2026-11-26T03:26:00+08:00",
+ "updated": "2026-11-26T10:55:00+08:00",
  "venues": {
   "台大綜合體育館": {
    "gym": {
-    "count": 0,
+    "count": 76,
     "capacity": 161
    },
    "pool": {
-    "count": 0,
+    "count": 14,
     "capacity": 130
    }
   }
